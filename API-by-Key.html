@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API || Explore</title>
+</head>
+<body>
+    <h1 id="activity"></h1>
+    <h3>API Explore</h3>
+
+
+    <script>
+       function displayInfo(){
+        fetch('http://www.boredapi.com/api/activity?key=5881028')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("activity").innerText = data.activity;
+        })
+       }
+       displayInfo();
+    </script>
+</body>
+</html>

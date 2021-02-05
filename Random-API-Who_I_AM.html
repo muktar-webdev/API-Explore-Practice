@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API || Who I Am</title>
+</head>
+
+<body>
+    <h1 id="name"></h1>
+    <h3>Random User API Testing</h3>
+
+
+    <script>
+        function displayUserName() {
+            fetch('https://randomuser.me/api')
+                .then(response => response.json())
+                .then(data => {
+                    const user = data.results[0];
+                    const name = user.name;
+                    const userFullName = `${name.title} ${name.first} ${name.last}`
+                    document.getElementById("name").innerText = userFullName;
+                })
+        }
+
+        displayUserName();
+        
+        setInterval(() =>{
+            displayUserName();
+        },2000);
+    </script>
+</body>
+
+</html>
